@@ -1,0 +1,30 @@
+{
+  "name": "busqueda-react",
+  "version": "0.0.1",
+  "description": "Un experimento en react para integrar búsqueda en listados",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaimerodas/busqueda-react.git"
+  },
+  "keywords": [
+    "react-js",
+    "node-js",
+    "javascript",
+    "search"
+  ],
+  "author": "Jaime Rodas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaimerodas/busqueda-react/issues"
+  },
+  "homepage": "https://github.com/jaimerodas/busqueda-react#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "path": "^0.12.7"
+  }
+}
