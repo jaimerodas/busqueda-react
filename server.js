@@ -19,12 +19,8 @@ function search(term) {
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-app.post('/search', function(req, res) {
-  if (req.body.q.length < 2) {
-    res.json([]).end();
-  }
-
-  res.json(usuarios.filter(search(req.body.q))).end();
+app.get('/search', function(req, res) {
+  res.json(usuarios.filter(search(req.query.q))).end();
 });
 
 app.listen(app.get('port'), function() {
