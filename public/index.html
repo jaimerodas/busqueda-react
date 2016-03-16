@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title>Search</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js" charset="utf-8"></script>
   </head>
   <body>
     <div id="content">
@@ -21,5 +25,13 @@
         </li>
       </ul>
     </div>
+
+    <script type="text/javascript">
+      var data = [
+        {id: 1, nombre: "Jaime", apellido: "Rodas", email: "jrodas@test.com"},
+        {id: 2, nombre: "Ronald", apellido: "Dunn", email: "rdunn@test.com"}
+      ];
+    </script>
+    <script src="scripts/search.js" type="text/babel"></script>
   </body>
 </html>
