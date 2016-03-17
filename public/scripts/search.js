@@ -40,10 +40,7 @@ var SearchBar = React.createClass({
 
   search: function(e) {
     this.setState({term: e.target.value})
-    if (e.target.value.length > 1) {
-      console.log('Vamos a buscar: ', e.target.value)
-      this.props.onSearch({q: e.target.value});
-    }
+    this.props.onSearch({q: e.target.value});
   },
 
   render: function() {
@@ -60,22 +57,31 @@ var SearchBar = React.createClass({
 
 var UserBox = React.createClass({
   getInitialState: function() {
-    return {data: this.props.data, term: ''};
+    return {data: this.props.initialData, term: ''};
   },
 
   handleSearch: function(term) {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      data: term,
-      success: function(data) {
-        this.setState({data: data, term: term.q});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        this.setState({data: this.props.data, term: term.q});
-        console.error(status, err.toString());
-      }.bind(this)
-    });
+    switch (term.q.length) {
+      case 0:
+        this.setState({data: this.props.initialData, term: ''})
+        break;
+      case 1:
+        break;
+      default:
+        $.ajax({
+          url: this.props.url,
+          dataType: 'json',
+          data: term,
+          success: function(data) {
+            this.setState({data: data, term: term.q});
+          }.bind(this),
+          error: function(xhr, status, err) {
+            this.setState({data: this.props.initialData, term: term.q});
+            console.error(status, err.toString());
+          }.bind(this)
+        });
+        break;
+    }
   },
 
   render: function() {
@@ -90,6 +96,6 @@ var UserBox = React.createClass({
 });
 
 ReactDOM.render(
-  <UserBox data={data} url="/search" />,
+  <UserBox initialData={data} url="/search" />,
   document.getElementById('content')
 );
